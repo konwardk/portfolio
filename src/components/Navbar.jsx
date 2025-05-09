@@ -31,7 +31,7 @@ export const Navbar = () => {
 
         {/* Navigation Links */}
         <ul
-          className={`md:mx-20 md:flex gap-6 absolute md:static left-0 w-full md:w-auto md:bg-transparent transition-all ease-in duration-300 z-10 ${
+          className={`bg-black md:mx-20 md:flex gap-6 absolute md:static left-0 w-full md:w-auto transition-all ease-in duration-300 z-50 ${
             menuOpen ? "top-16" : "top-[-500px]"
           }`}
         >
