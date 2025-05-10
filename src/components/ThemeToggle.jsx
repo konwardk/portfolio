@@ -6,30 +6,23 @@ export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    const isSmallDevice = window.innerWidth <= 640;
+  if (typeof window === "undefined") return;
 
-    if (isSmallDevice) {
-      // Use system preference for small devices
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDarkMode(prefersDark);
-      if (prefersDark) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    } else {
-      // Use stored theme for larger screens
-      const storedTheme = localStorage.getItem("theme");
-      if (storedTheme === "dark") {
-        setIsDarkMode(true);
-        document.documentElement.classList.add("dark");
-      } else {
-        localStorage.setItem("theme", "light");
-        setIsDarkMode(false);
-        document.documentElement.classList.remove("dark");
-      }
-    }
-  }, []);
+  const isSmallDevice = window.innerWidth <= 640;
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (isSmallDevice) {
+    setIsDarkMode(prefersDark);
+    document.documentElement.classList.toggle("dark", prefersDark);
+  } else {
+    const storedTheme = localStorage.getItem("theme");
+    const useDark = storedTheme === "dark";
+    setIsDarkMode(useDark);
+    document.documentElement.classList.toggle("dark", useDark);
+    if (!storedTheme) localStorage.setItem("theme", "light");
+  }
+}, []);
+
 
   const toggleTheme = () => {
     if (window.innerWidth <= 764) return; // disable manual toggle on small devices
@@ -56,7 +49,7 @@ export const ThemeToggle = () => {
       {isDarkMode ? (
         <Sun className="h-6 w-6 text-yellow-300" />
       ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
+        <Moon className="h-6 w-6 text-yellow-700" />
       )}
     </button>
   );

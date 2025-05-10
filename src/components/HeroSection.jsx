@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
+import { About } from "../components/About";
 
 const heading = {
   image: "/my-photo.png",
-};
-const me = {
   name: "Dipankor Konwar",
   profession: "Web Developer",
 };
+
 
 export const HeroSection = () => {
   return (
@@ -23,7 +23,7 @@ export const HeroSection = () => {
           <img
             src={heading.image}
             alt="Profile"
-            className="z-20 rounded-[70%_30%_30%_70%] w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover transition-all"
+            className="rounded-[70%_30%_30%_70%] w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover transition-all z-20"
           />
         </motion.div>
 
@@ -36,12 +36,14 @@ export const HeroSection = () => {
         >
           <h2 className="text-2xl font-semibold mb-2">Hello,</h2>
           <h1 className="text-2xl md:text-4xl font-bold">
-            I'm <span className="text-blue-500">{me.name}</span>
-            <span className="text-amber-100">, a passionate {me.profession}</span>.
+            I'm <span className="text-blue-500">{heading.name}</span>
+            <span className="text-2xl">, a passionate</span>
+            <span className="text-4xl">{heading.profession}</span>.
           </h1>
         </motion.div>
 
       </div>
+      <About/>
     </div>
   );
 };
