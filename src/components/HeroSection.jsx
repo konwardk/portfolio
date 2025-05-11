@@ -23,7 +23,7 @@ export const HeroSection = () => {
           <img
             src={heading.image}
             alt="Profile"
-            className="rounded-[70%_30%_30%_70%] w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover transition-all z-20"
+            className="rounded-[70%_30%_30%_70%] sm:w-64 sm:h-64 md:w-80 md:h-90 md:mt-10 object-cover transition-all z-20"
           />
         </motion.div>
 
@@ -32,7 +32,7 @@ export const HeroSection = () => {
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="w-full md:w-1/2 text-center md:text-left"
+          className="w-full md:w-1/2 mt-10 z-20 text-center md:text-left"
         >
           <h2 className="text-2xl font-semibold mb-2">Hello,</h2>
           <h1 className="text-2xl md:text-4xl font-bold">

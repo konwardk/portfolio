@@ -11,6 +11,7 @@ export const Navbar = () => {
   const navItems = {
     home: "Home",
     about: "About",
+    project: "Projects",
     contact: "Contact",
     services: "Services",
     downloadCV: "Download CV",
@@ -57,6 +58,9 @@ export const Navbar = () => {
           </li>
           <li className="p-3 md:p-0">
             <a href="#about" onClick={() => setMenuOpen(false)}>{navItems.about}</a>
+          </li>
+          <li className="p-3 md:p-0">
+            <a href="#project" onClick={() => setMenuOpen(false)}>{navItems.project}</a>
           </li>
           <li className="p-3 md:p-0">
             <a href="#contact" onClick={() => setMenuOpen(false)}>{navItems.services}</a>
