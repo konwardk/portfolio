@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { About } from "../components/About";
+import { Projects } from "../components/Projects";
 
 const heading = {
   image: "/my-photo.png",
@@ -44,6 +45,7 @@ export const HeroSection = () => {
 
       </div>
       <About/>
+      <Projects/>
     </div>
   );
 };

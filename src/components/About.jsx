@@ -17,7 +17,7 @@ const image = {
 
 export const About = () => {
   return (
-    <div className="w-full h-full pt-20 pb-60" id="about">
+    <div className="w-full h-full pt-20 pb-30" id="about">
       <h1 className="text-3xl font-bold text-center mb-8">About Me</h1>
 
       <div className="flex flex-col-reverse md:flex-row items-center justify-center max-w-6xl mx-auto px-4 gap-10">
