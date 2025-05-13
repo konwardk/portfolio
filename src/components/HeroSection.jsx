@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { About } from "../components/About";
 import { Projects } from "../components/Projects";
+import { Footer } from "../components/Footer";
 
 const heading = {
   image: "/my-photo.png",
@@ -11,6 +12,7 @@ const heading = {
 
 export const HeroSection = () => {
   return (
+    <>
     <div className="w-full h-full pt-20 pb-60" id="home">
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start max-w-6xl mx-auto px-4 gap-8">
 
@@ -47,5 +49,7 @@ export const HeroSection = () => {
       <About/>
       <Projects/>
     </div>
+    <Footer/>
+    </>
   );
 };
