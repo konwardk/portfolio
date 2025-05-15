@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "../components/ThemeToggle";
 
@@ -63,7 +63,7 @@ export const Navbar = () => {
             <a href="#project" onClick={() => setMenuOpen(false)}>{navItems.project}</a>
           </li>
           <li className="p-3 md:p-0">
-            <a href="#contact" onClick={() => setMenuOpen(false)}>{navItems.services}</a>
+            <a href="#services" onClick={() => setMenuOpen(false)}>{navItems.services}</a>
           </li>
           <li className="p-3 md:p-0">
             <a href="#contact" onClick={() => setMenuOpen(false)}>{navItems.contact}</a>

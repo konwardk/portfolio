@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { About } from "../components/About";
 import { Projects } from "../components/Projects";
+import { Service } from "../components/Service";
+import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 
 const heading = {
@@ -48,6 +50,8 @@ export const HeroSection = () => {
       </div>
       <About/>
       <Projects/>
+      <Service/>
+      <Contact/>
     </div>
     <Footer/>
     </>

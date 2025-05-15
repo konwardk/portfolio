@@ -28,11 +28,12 @@ export const Projects = () => {
 
   const projectData = [
     {
-      title: "Todo App",
+      title: "Recruitment Portal",
       description:
-        "A simple Todo app built with React and Tailwind CSS. It allows users to add, delete, and mark tasks as complete. The app uses local storage to persist data across sessions.",
+        "A recruitment portal built with React and Tailwind CSS. It allows user to register and apply for the particular job. The app features a user-friendly interface and responsive design.",
       image: projects.todo,
     },
+    
     {
       title: "e-commerce App",
       description:
@@ -42,15 +43,16 @@ export const Projects = () => {
     {
       title: "CMS App",
       description:
-        "Same Todo app with additional features like edit, mark complete, and responsive layout using Swiper.",
+        "A Content Management System for the Meghalaya State Portal, built with Laravel and MySQL. It allows users to manage content, users, and settings. The app features a user-friendly interface and robust security measures.",
       image: projects.cms,
     },
     {
-      title: "Todo App 4",
+      title: "Todo App",
       description:
-        "Same Todo app with additional features like edit, mark complete, and responsive layout using Swiper.",
+        "A simple Todo app built with React and Tailwind CSS. It allows users to add, delete, and mark tasks as complete. The app uses local storage to persist data across sessions.",
       image: projects.todo,
     },
+    
   ];
 
   const ProjectCard = ({ title, description, image }) => (
@@ -68,7 +70,7 @@ export const Projects = () => {
   );
 
   return (
-    <div className="w-full h-full mt-10 pb-30" id="project">
+    <div className="w-full h-full pt-20 pb-30" id="project">
       <h1 className="text-3xl font-bold text-center mb-8">Projects</h1>
       <div className="flex mt-10">
         <motion.div
