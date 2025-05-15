@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 const projects = {
   todo: "/projects/todo-vector.png",
   ecom: "/projects/ecommerce-vector.png",
+  cms : "/projects/cms-vector.png",
   // Add more project images if needed
 };
 
@@ -39,10 +40,10 @@ export const Projects = () => {
       image: projects.ecom,
     },
     {
-      title: "Todo App 3",
+      title: "CMS App",
       description:
         "Same Todo app with additional features like edit, mark complete, and responsive layout using Swiper.",
-      image: projects.todo,
+      image: projects.cms,
     },
     {
       title: "Todo App 4",
