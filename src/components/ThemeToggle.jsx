@@ -6,51 +6,39 @@ export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-  if (typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
 
-  const isSmallDevice = window.innerWidth <= 640;
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (isSmallDevice) {
-    setIsDarkMode(prefersDark);
-    document.documentElement.classList.toggle("dark", prefersDark);
-  } else {
     const storedTheme = localStorage.getItem("theme");
-    const useDark = storedTheme === "dark";
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    const useDark = storedTheme === "dark" || (!storedTheme && prefersDark);
+    
     setIsDarkMode(useDark);
     document.documentElement.classList.toggle("dark", useDark);
-    if (!storedTheme) localStorage.setItem("theme", "light");
-  }
-}, []);
-
+  }, []);
 
   const toggleTheme = () => {
-    if (window.innerWidth <= 764) return; // disable manual toggle on small devices
-
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    document.documentElement.classList.toggle("dark", newMode);
+    localStorage.setItem("theme", newMode ? "dark" : "light");
   };
 
   return (
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed max-sm:hidden right-5 z-50 p-2 top-2 rounded-full transition-colors duration-300",
+        "p-2 rounded-full transition-all duration-300 hover:bg-primary/10 group",
         "focus:outline-none"
       )}
+      aria-label="Toggle theme"
     >
       {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
+        <Sun className="h-5 w-5 text-yellow-400 group-hover:rotate-45 transition-transform" />
       ) : (
-        <Moon className="h-6 w-6 text-yellow-700" />
+        <Moon className="h-5 w-5 text-slate-700 group-hover:-rotate-12 transition-transform" />
       )}
     </button>
   );
 };
+

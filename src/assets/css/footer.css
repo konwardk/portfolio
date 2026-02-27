@@ -1,7 +1,7 @@
 
+/* Keeping existing .about styles as they might be used elsewhere */
 .about{
     height: fit-content;
-
 }
 .about a{
     text-decoration: none;
@@ -12,29 +12,45 @@
     color: rgb(156, 156, 242);
 }
 
+/* Modernized footer styles */
 .footer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between; /* Distribute items with space between them */
     align-items: center;
-    text-align: center;
-    background-color: rgb(41, 0, 66);
-    color: white;
-    position: relative;
-    bottom: 0px;
-    padding: 1rem;
-    gap: 2rem;
+    text-align: center; /* Center text within each flex item */
+    background-color: #1a1a2e; /* Darker, professional background */
+    color: #e0e0e0; /* Lighter text color for contrast */
+    padding: 1.5rem 2rem; /* More vertical padding, slightly more horizontal */
+    gap: 1.5rem; /* Slightly reduced gap between items */
+    font-size: 0.95rem; /* Slightly smaller base font size */
 }
+
+/* Ensure links within the footer have consistent styling */
+.footer a{
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.footer a:hover{
+    color: #8c7ae6; /* A nice purple for hover, less aggressive than before */
+}
+
 .footer li{
     list-style: none;
-    margin-top: 1rem;
+    margin: 0; /* Remove default margin from list items */
+    padding: 0; /* Remove default padding from list items */
 }
+
 .link{
-    gap: 1rem;
     display: flex;
+    gap: 1rem;
     
   
 }
+
 .tech{
-    color: rgb(156, 156, 242);
+    color: #8c7ae6; /* Use the same professional purple for tech highlights */
+    font-weight: bold; /* Keep bold for emphasis */
 }

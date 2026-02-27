@@ -1,121 +1,122 @@
+/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { ExternalLink, Github } from "lucide-react";
 
-import { useEffect, useState } from 'react';
+const projectData = [
+  {
+    title: "Recruitment Portal",
+    description: "A comprehensive recruitment portal allowing users to register and apply for jobs with a streamlined application tracking system.",
+    image: "/projects/todo-vector.png",
+    tags: ["React", "Tailwind", "Firebase"],
+    link: "#",
+    github: "#"
+  },
+  {
+    title: "e-commerce Platform",
+    description: "A full-featured e-commerce application with product listings, advanced cart management, and a mock checkout flow.",
+    image: "/projects/ecommerce-vector.png",
+    tags: ["React", "Redux", "Node.js"],
+    link: "#",
+    github: "#"
+  },
+  {
+    title: "Government State Portal CMS",
+    description: "A secure Content Management System built for the Meghalaya State Portal, focusing on content integrity and role-based access.",
+    image: "/projects/cms-vector.png",
+    tags: ["Laravel", "MySQL", "Bootstrap"],
+    link: "#",
+    github: "#"
+  },
+  {
+    title: "Task Management App",
+    description: "A productivity-focused todo application with local persistence, category filtering, and an intuitive drag-and-drop interface.",
+    image: "/projects/todo-vector.png",
+    tags: ["React", "Context API", "Local Storage"],
+    link: "#",
+    github: "#"
+  },
+];
 
-const projects = {
-  todo: "/projects/todo-vector.png",
-  ecom: "/projects/ecommerce-vector.png",
-  cms : "/projects/cms-vector.png",
-  // Add more project images if needed
+const ProjectCard = ({ project, index }) => {
+  const { title, description, image, tags, link, github } = project;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+    >
+      {/* Image Container */}
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+          <a href={github} className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-colors">
+            <Github className="w-6 h-6 text-white" />
+          </a>
+          <a href={link} className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-colors">
+            <ExternalLink className="w-6 h-6 text-white" />
+          </a>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6 space-y-4">
+        <div className="flex flex-wrap gap-2">
+          {tags.map(tag => (
+            <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{title}</h3>
+        <p className="text-foreground/60 line-clamp-3">{description}</p>
+      </div>
+    </motion.div>
+  );
 };
 
 export const Projects = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const updateView = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    updateView();
-    window.addEventListener('resize', updateView);
-    return () => window.removeEventListener('resize', updateView);
-  }, []);
-
-  const projectData = [
-    {
-      title: "Recruitment Portal",
-      description:
-        "A recruitment portal built with React and Tailwind CSS. It allows user to register and apply for the particular job. The app features a user-friendly interface and responsive design.",
-      image: projects.todo,
-    },
-    
-    {
-      title: "e-commerce App",
-      description:
-        "An e-commerce app built with React and Tailwind CSS. It features a product listing, shopping cart, and checkout process. The app uses a mock API to fetch product data.",
-      image: projects.ecom,
-    },
-    {
-      title: "CMS App",
-      description:
-        "A Content Management System for the Meghalaya State Portal, built with Laravel and MySQL. It allows users to manage content, users, and settings. The app features a user-friendly interface and robust security measures.",
-      image: projects.cms,
-    },
-    {
-      title: "Todo App",
-      description:
-        "A simple Todo app built with React and Tailwind CSS. It allows users to add, delete, and mark tasks as complete. The app uses local storage to persist data across sessions.",
-      image: projects.todo,
-    },
-    
-  ];
-
-  const ProjectCard = ({ title, description, image }) => (
-    <div className="project border rounded-lg p-6 shadow-md w-full lg:w-[45%]">
-      <h1 className="text-2xl font-bold mb-4">{title}</h1>
-      <div className="about-project flex flex-col md:flex-row justify-between gap-4">
-        <p className="text-base md:w-3/5">{description}</p>
-        <img
-          className="rounded-lg object-cover w-full md:w-2/5 h-48 md:h-52"
-          src={image}
-          alt={`${title} Screenshot`}
-        />
-      </div>
-    </div>
-  );
-
   return (
-    <div className="w-full h-full pt-20 pb-30" id="project">
-      <h1 className="text-3xl font-bold text-center mb-8">Projects</h1>
-      <div className="flex mt-10">
-        <motion.div
-          className="flex text-lg text-center mx-10 z-20"
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <p>
-            Here are some of my projects that showcase my skills and expertise in web development.
-            Each project is a testament to my dedication to creating high-quality, user-friendly applications.
-          </p>
-        </motion.div>
-      </div>
-
-      <motion.div
-        className="mt-10 px-4"
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        {isMobile ? (
-          <Swiper
-            modules={[Navigation, Pagination, A11y]}
-            spaceBetween={20}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
+    <section className="relative z-10 py-24 px-4 bg-background/50" id="project">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col items-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-4xl md:text-5xl font-bold text-center mb-4"
           >
-            {projectData.map((project, index) => (
-              <SwiperSlide key={index}>
-                <ProjectCard {...project} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <div className="flex flex-wrap justify-around gap-10">
-            {projectData.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-          </div>
-        )}
-      </motion.div>
-    </div>
+            Featured Projects
+          </motion.h2>
+          <div className="w-20 h-1 bg-primary rounded-full" />
+          <p className="mt-6 text-lg text-foreground/60 text-center max-w-2xl">
+            A selection of my recent work, showcasing expertise in frontend and backend development.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projectData.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </div>
+        
+        <div className="mt-16 text-center">
+          <a 
+            href="https://github.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+          >
+            See more on GitHub <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
+
