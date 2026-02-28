@@ -13,7 +13,7 @@ const aboutData = {
     { name: "MySQL", icon: "/skills/mysql.png" },
     { name: "React JS", icon: "/skills/react.png" },
   ],
-  image: "/about.png"
+  image: "/aboutme.png"
 };
 
 export const About = () => {

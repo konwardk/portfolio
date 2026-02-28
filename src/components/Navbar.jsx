@@ -8,6 +8,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const logo = { name: "DK." };
+  const cvLink = "/DipankorKonwar.pdf";
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -64,12 +65,12 @@ export const Navbar = () => {
           <div className="flex items-center gap-4 pl-4 border-l border-border">
             <ThemeToggle />
             <a 
-              href="/DipankorKonwar.pdf" 
+              href={cvLink} 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-5 py-2 rounded-full border border-primary/20 text-sm font-medium hover:bg-primary hover:text-white transition-all duration-300"
             >
-              Resume
+              Download CV
             </a>
           </div>
         </div>
@@ -110,7 +111,7 @@ export const Navbar = () => {
               ))}
               <li className="pt-4 mt-4 border-t border-border">
                 <a 
-                  href="/DK_CV.pdf" 
+                  href={cvLink}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full inline-block text-center py-3 rounded-xl bg-primary text-white font-medium shadow-lg shadow-primary/20"
