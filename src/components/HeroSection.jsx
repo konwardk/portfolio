@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const heading = {
-  image: "/my-photo.png",
+  image: "/me.png",
   name: "Dipankor Konwar",
   profession: "Full Stack Developer",
 };
@@ -66,7 +66,7 @@ export const HeroSection = () => {
         >
           <div className="relative w-64 h-64 md:w-96 md:h-96">
             {/* Decorative background shape */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-violet-500/20 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-violet-500/20 rounded-[50%_20%_50%_20%/20%_50%_20%_50%] animate-pulse" />
             
             <motion.div
               animate={{
@@ -82,7 +82,7 @@ export const HeroSection = () => {
               <img
                 src={heading.image}
                 alt="Profile"
-                className="w-full h-full object-cover rounded-[30%_70%_70%_30%/30%_30%_70%_70%] shadow-2xl border-4 border-white/10"
+                className="w-full h-full object-cover rounded-[50%_20%_50%_20%/20%_50%_20%_50%] shadow-2xl border-4 border-white/10"
               />
             </motion.div>
           </div>
